@@ -1,3 +1,5 @@
+'use strict';
+
 window.renderStatistics = function (ctx, names, times) {
   ctx.beginPath();
   ctx.bezierCurveTo(110, 40, 215, 20, 320, 40);
@@ -26,16 +28,18 @@ window.renderStatistics = function (ctx, names, times) {
   ctx.fillText('Ура вы победили!', 120, 50);
   ctx.fillText('Список результатов:', 120, 70);
 
-  //var findMax = function() {
+  var findMax = function(arr) {
     var max = -1;
-    for (var i=0; i< times.length; i++) {
-      if (times[i] > max) {
-        max = times[i];
+    for (var i=0; i< arr.length; i++) {
+      if (arr[i] > max) {
+        max = arr[i];
       }
     }
 
-    //return max;
-  //}
+    return max;
+  }
+
+  findMax(times);
 
   var canvasHeight = 270;
   var histogramHeight = 150;
@@ -46,17 +50,16 @@ window.renderStatistics = function (ctx, names, times) {
   var initialX = 150;
   var initialY = 200;
   var lineHeight = 30;
-  var step = histogramHeight - lineHeight*2;
+  var step = histogramHeight - lineHeight * 2;
 
-
-  for (var i=0; i< times.length; i++) {
+  for (var i = 0; i < times.length; i++) {
     ctx.fillStyle = 'black';
     ctx.fillText(parseInt(times[i]), initialX+indent*i, 100);
     ctx.fillText(names[i], initialX+indent*i, canvasHeight-lineHeight);
     ctx.fillStyle = 'rgba(0, 0, 255, 1)';
-    if (names[i]=='Вы') {
+    if (names[i] == 'Вы') {
       ctx.fillStyle = 'rgba(255, 0, 0, 1)';
     }
     ctx.fillRect(initialX+indent*i, initialY-times[i]*step/max, barWidth, times[i]*step/max);
-  }
+  };
 }
