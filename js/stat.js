@@ -38,7 +38,6 @@ window.renderStatistics = function (ctx, names, times) {
     return max;
   };
 
-  var canvasHeight = 270;
   var histogramHeight = 150;
   var max = findMax(times);
   var barWidth = 40;
