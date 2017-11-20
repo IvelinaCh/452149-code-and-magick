@@ -28,16 +28,16 @@ window.renderStatistics = function (ctx, names, times) {
   ctx.fillText('Ура вы победили!', 120, 50);
   ctx.fillText('Список результатов:', 120, 70);
 
-  var findMax = function(arr) {
+  var findMax = function (arr) {
     var max = -1;
-    for (var i=0; i< arr.length; i++) {
+    for (var i = 0; i < arr.length; i++) {
       if (arr[i] > max) {
         max = arr[i];
       }
     }
 
     return max;
-  }
+  };
 
   findMax(times);
 
@@ -54,12 +54,12 @@ window.renderStatistics = function (ctx, names, times) {
 
   for (var i = 0; i < times.length; i++) {
     ctx.fillStyle = 'black';
-    ctx.fillText(parseInt(times[i]), initialX+indent*i, 100);
-    ctx.fillText(names[i], initialX+indent*i, canvasHeight-lineHeight);
+    ctx.fillText(parseInt(times[i], 10), initialX + indent * i, 100);
+    ctx.fillText(names[i], initialX + indent * i, canvasHeight - lineHeight);
     ctx.fillStyle = 'rgba(0, 0, 255, 1)';
-    if (names[i] == 'Вы') {
+    if (names[i] === 'Вы') {
       ctx.fillStyle = 'rgba(255, 0, 0, 1)';
     }
-    ctx.fillRect(initialX+indent*i, initialY-times[i]*step/max, barWidth, times[i]*step/max);
+    ctx.fillRect(initialX + indent * i, initialY - times[i] * step / max, barWidth, times[i] * step / max);
   };
-}
+};
