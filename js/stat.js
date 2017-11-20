@@ -43,7 +43,7 @@ window.renderStatistics = function (ctx, names, times) {
 
   var canvasHeight = 270;
   var histogramHeight = 150;
-  //var opacityRandom = Math.random();
+  var max;//var opacityRandom = Math.random();
 
   var barWidth = 40;
   var indent = 90;
@@ -59,7 +59,7 @@ window.renderStatistics = function (ctx, names, times) {
     ctx.fillStyle = 'rgba(0, 0, 255, 1)';
     if (names[i] === 'Вы') {
       ctx.fillStyle = 'rgba(255, 0, 0, 1)';
-    }
+    };
     ctx.fillRect(initialX + indent * i, initialY - times[i] * step / max, barWidth, times[i] * step / max);
   };
 };
