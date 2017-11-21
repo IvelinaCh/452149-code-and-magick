@@ -49,14 +49,12 @@ window.renderStatistics = function (ctx, names, times) {
 
   for (var i = 0; i < times.length; i++) {
     ctx.fillStyle = 'black';
-    ctx.globalAlpha = 1;
     ctx.fillText(parseInt(times[i], 10), initialX + indent * i, 100);
     ctx.fillText(names[i], initialX + indent * i, initialY + lineHeight);
     if (names[i] === 'Вы') {
       ctx.fillStyle = 'rgba(255, 0, 0, 1)';
     } else {
-      ctx.fillStyle = 'rgb(0, 0, 255)';
-      ctx.globalAlpha = Math.random();
+      ctx.fillStyle = 'rgba(0, 0, 255, ' + Math.random() + ')';
     }
     ctx.fillRect(initialX + indent * i, initialY - times[i] * step / max, barWidth, times[i] * step / max);
   }
