@@ -20,12 +20,12 @@ var createWizard = function () {
     coatColor: getRandomFromArray(coatColors),
     eyesColor: getRandomFromArray(eyesColors)
   };
-}
+};
 
-var createWizards = function (wizardsCount) {
+var createWizards = function () {
   for (var i = 0; i < wizardsCount; i++) {
     wizards.push(createWizard());
-  };
+  }
   return wizards;
 };
 
@@ -45,7 +45,7 @@ var getWizardsFragment = function () {
     fragment.appendChild(renderWizard(wizards[i]));
   }
   return fragment;
-}
+};
 
 var showSetup = function () {
   var setupSimilar = document.querySelector('.setup-similar');
@@ -53,7 +53,7 @@ var showSetup = function () {
   userDialog.classList.remove('hidden');
   setupSimilar.classList.remove('hidden');
   similarList.appendChild(getWizardsFragment());
-}
+};
 
 wizards = createWizards(wizardsCount);
 showSetup();
