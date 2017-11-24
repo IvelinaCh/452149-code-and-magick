@@ -22,9 +22,9 @@ var getRandomFromArray = function (arr) {
 var createClone = function (array) {
   for (var i = 0; i < wizardsCount; i++) {
     array.push({
-      name : getRandomFromArray(firstNames) + '\n' + getRandomFromArray(lastNames),
-      coatColor : getRandomFromArray(coatColors),
-      eyesColor : getRandomFromArray(eyesColors)
+      name: getRandomFromArray(firstNames) + '\n' + getRandomFromArray(lastNames),
+      coatColor: getRandomFromArray(coatColors),
+      eyesColor: getRandomFromArray(eyesColors)
     });
   }
   return array;
@@ -37,7 +37,7 @@ var renderWizard = function (wizardArr) {
   wizardElement.querySelector('.wizard-eyes').style.fill = wizardArr.eyesColor;
 
   return wizardElement;
-}
+};
 
 wizards = createClone(wizards);
 var fragment = document.createDocumentFragment();
