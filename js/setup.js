@@ -37,7 +37,7 @@ var renderWizard = function (wizard) {
 };
 
 var getWizardsFragment = function (wizards) {
-
+  var fragment = document.createDocumentFragment();
   for (var i = 0; i < wizards.length; i++) {
     fragment.appendChild(renderWizard(wizards[i]));
   }
@@ -45,15 +45,14 @@ var getWizardsFragment = function (wizards) {
 };
 
 var showSetup = function () {
-  var wizards = createWizards(wizardsCount);
-  var fragment = document.createDocumentFragment();
   var similarList = document.querySelector('.setup-similar-list');
   var wizardsCount = 4;
   var setupSimilar = document.querySelector('.setup-similar');
   var userDialog = document.querySelector('.setup');
   userDialog.classList.remove('hidden');
   setupSimilar.classList.remove('hidden');
-  similarList.appendChild(getWizardsFragment());
+  var wizards = createWizards(wizardsCount);
+  similarList.appendChild(getWizardsFragment(wizards));
 };
 
 showSetup();
